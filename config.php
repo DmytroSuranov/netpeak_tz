@@ -1,0 +1,15 @@
+<?php
+// Twitter Api
+define('TWITTER_TOKEN', '911566958113542144-VUl5n5FoRH5iONJT2IQr1QHBheanbAV');
+define('TWITTER_TOKEN_SECRET', 'VSimNnJslAK9SxPsUw1qbV5tkOpZLUMVZJo61oNq1vsHd');
+define('TWITTER_CONSUMER_KEY', 'IYVpo6xoVVum9H8enZx0mdxIh');
+define('TWITTER_CONSUMER_SECRET', 'xWcvXl5woJkPJh7F2xPT7gCpwvHjbJMxCVbtT4kmfP6tyDCDxW');
+
+// Facebook Api
+define('FACEBOOK_APP_ID', '1825936454383206');
+define('FACEBOOK_APP_SECRET', '2532db1e978b505cdb2fa297a0afa7db');
+
+// LinkedIn Api
+define('LINKEDIN_CLIENT_ID', '77gnk2mb5viqfu');
+define('LINKEDIN_CLIENT_SECRET', 'RZCHtkdXF7XxyKLF');
+

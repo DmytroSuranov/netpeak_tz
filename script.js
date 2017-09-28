@@ -3,7 +3,7 @@ var monthNames = ["January", "February", "March", "April", "May", "June",
 ];
 function TwitterApi(){
 	$.ajax({
-		   url: "Controller.php",
+		   url: "Controller.php?api=twitter",
 		   type: 'post',
 		   data: $('#form_twitter').serialize(),
 		   success: function(data){
@@ -14,7 +14,6 @@ function TwitterApi(){
 				$('.twitter_block .user_container .error').remove();
 				if(data != 0){
 					var data_array = $.parseJSON(data);
-					console.log('Twitter');
 					if(typeof data_array[0] === 'undefined'){
 						$('.twitter_block .user_container').append('<div class="content error">No tweets.</div>');
 						return false;
@@ -65,7 +64,7 @@ function FacebookApi(){
 			FB.login(function(response) {
 				if (response.authResponse) {
 				$.ajax({
-					   url: "Controller.php",
+					   url: "Controller.php?api=facebook",
 					   type: 'post',
 					   data: 'facebook_access_token='+response.authResponse.accessToken+'&user_id='+response.authResponse.user_id,
 					   success: function(data){
@@ -109,7 +108,7 @@ function FacebookApi(){
 			},{scope: 'user_location,user_posts,user_photos,user_about_me,ads_management,manage_pages,publish_pages,pages_show_list'});
 		}else{
 			$.ajax({
-			   url: "Controller.php",
+			   url: "Controller.php?api=facebook",
 			   type: 'post',
 			   data: 'facebook_access_token='+response.authResponse.accessToken+'&user_id='+response.authResponse.user_id,
 			   success: function(data){
@@ -119,7 +118,7 @@ function FacebookApi(){
 						$(this).remove();
 					});
 				   var data_array = $.parseJSON(data);
-					console.log('Facebook');
+					console.log(data_array);
 					$('.facebook_block .user_container .content').remove();
 					$('.facebook_block .user_container').append('<div class="content">Posts by user <a target="_blank" href="'+data_array['user_info']['link']+'"><img src="'+data_array['picture']+'">'+data_array['user_info']['name']+'</a></div>');
 					
@@ -198,7 +197,7 @@ $(document).ready(function(){
 	$('#linkedin_link').click(function(e){
 		e.preventDefault();
 		resetAllApies();
-		location.href = '/Controller.php?linkedin=1';
+		location.href = '/Controller.php?linkedin=1&api=linkedin';
 	});
 	$('#twitter_link').click(function(e){
 		e.preventDefault();
