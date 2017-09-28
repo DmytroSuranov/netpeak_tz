@@ -1,0 +1,131 @@
+h1.h1{
+	font-family:Georgia, sans-serif;
+	text-align:center;
+}
+.container{
+	padding-bottom: 100px;
+}
+#form_twitter{
+	display:none;
+}
+#form_twitter button{
+	width:38%;
+	float:right;
+	margin-left:2%;
+}
+#form_twitter input.form-control{
+	width:60%;
+	float:left;
+}
+.user_container a.name:hover{
+	text-decoration:none;
+}
+.user_container img{
+	width: 100px;
+    border-radius: 50%;
+}
+.user_container div.content{
+	width: 100px;
+    margin: 10px auto;
+	text-align: center;
+}
+.tweet{
+	margin:15px;
+	border-top:1px solid #ccc;
+	padding:10px 0;
+}
+.tweet .name{
+	float: left;
+    width: calc(100% - 65px);
+}
+.tweet .image{
+	float: left;
+    margin-right: 15px;
+}
+.tweet .image img, .text_tweet img{
+	border-radius: 50%;
+    width: 50px;
+}
+.media_tweet img{
+	max-width: 700px;
+    border-radius: 10px;
+    margin: 10px 0;
+	width:auto;
+	height:auto;
+}
+.retweeted{
+	display: block;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+.error{
+	color:red;
+}
+a.links{
+	display:inline-block;
+	width: 32%;
+}
+.main{
+	margin-top:15px;
+	margin-bottom:30px;
+	text-align: center;
+}
+#form_twitter{
+	margin-top:20px;
+}
+.facebook_post .post_date{
+	display: block;
+    margin-left: 20px;
+    font-size: 12px;
+    color: #aaa
+}
+.facebook_post .post_story{
+	margin-left: 20px;
+    font-size: 13px;
+    font-style: italic;
+    color: black;
+    font-weight: bold;
+}
+.facebook_post .post_body .name_in_message{
+	display: block;
+    font-size: 13px;
+    color: lightblue;
+}
+.facebook_post .post_body{
+	display: block;
+    padding:0 20px;
+}
+.facebook_post {
+	border-top:1px solid #ccc;
+	padding:10px 0;
+}
+.facebook_post a{
+	display:block;
+	margin-left:20px;
+}
+.logout_from_facebook{
+	display:none;
+	text-align: center;
+}
+.linkedin_block .user_container .content span{
+	display: inline-block;
+}
+.linkedin_block .main_container a img{
+	border-radius: 16px;
+    margin: 10px 0;
+	max-width: 700px;
+}
+.linkedin_block .main_container{
+	padding-left:20px;
+}
+.linked_description{
+	padding: 15px;
+	font-size: 16px;
+	font-weight: bold;
+}
+.linked_title{
+	padding: 15px;
+    font-size: 16px;
+    font-style: italic;
+}
