@@ -129,3 +129,11 @@ a.links{
     font-size: 16px;
     font-style: italic;
 }
+.linkedin_block .main_container .error{
+	width: 115px;
+    margin: 0 auto;
+}
+.facebook_block .main_container .error{
+	width:80px;
+	margin:0 auto;
+}

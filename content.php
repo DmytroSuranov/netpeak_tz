@@ -33,16 +33,21 @@
 					<div class="user_container">
 						<div class="content">
 						<a target="_blank" href="'.$data_object->publicProfileUrl.'">';
-					if($data_object->pictureUrls->_total != 0){
-						$html .= '<img src="'.$data_object->pictureUrls->values[0].'">';
-					}		
+				if($data_object->pictureUrls->_total != 0){
+					$html .= '<img src="'.$data_object->pictureUrls->values[0].'">';
+				}		
 				$html .= $data_object->firstName.' '.$data_object->lastName.'</a><span>'.$data_object->headline.'</span></div></div>
-					<div class="main_container">
-						<div class="linked_description">'.$data_object->currentShare->content->description.'</div>
+					<div class="main_container">';
+				if($data_object->currentShare->content->description){
+					$html .= '<div class="linked_description">'.$data_object->currentShare->content->description.'</div>
 						<a target="_blank" href="'.$data_object->currentShare->content->resolvedUrl.'"><img src="'.$data_object->currentShare->content->submittedImageUrl.'"></a>
 						<div class="linked_title">'.$data_object->currentShare->content->title.'</div>
-					</div>
-				</div>';
+					</div>';
+				}else{
+					$html .= '<div class="error">No sharing post</div>';
+				}
+						
+				$html .= '</div>';		
 				echo $html;
 				
 			}

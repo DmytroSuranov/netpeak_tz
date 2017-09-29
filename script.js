@@ -73,11 +73,15 @@ function FacebookApi(){
 							$('.facebook_block .main_container .facebook_post').each(function(){
 								$(this).remove();
 							});
+							$('.facebook_block .main_container .error').remove();
 						   var data_array = $.parseJSON(data);
 							console.log(data_array);
 							$('.facebook_block .user_container .content').remove();
 							$('.facebook_block .user_container').append('<div class="content">Posts by user <a target="_blank" href="'+data_array['user_info']['link']+'"><img src="'+data_array['picture']+'">'+data_array['user_info']['name']+'</a></div>');
-							
+							if(data_array['posts'].data.length == 0){
+								$('.facebook_block .main_container').append('<div class="error">No posts.</div>');
+								return false;
+							}
 							for(var i = 0; i < data_array['posts'].data.length; i ++){
 								if (typeof data_array['posts'].data[i]['id'] !== 'undefined'){
 									var date = new Date(data_array['posts'].data[i]['created_time']);
@@ -101,7 +105,8 @@ function FacebookApi(){
 							}
 					   }
 					 });
-
+					window.clearInterval(window.intervalId);
+					window.intervalId = setInterval(FacebookApi, 10000);
 				} else {
 				 console.log('User cancelled login or did not fully authorize.');
 				}
@@ -117,11 +122,15 @@ function FacebookApi(){
 					$('.facebook_block .main_container .facebook_post').each(function(){
 						$(this).remove();
 					});
+					$('.facebook_block .main_container .error').remove();
 				   var data_array = $.parseJSON(data);
 					console.log(data_array);
 					$('.facebook_block .user_container .content').remove();
 					$('.facebook_block .user_container').append('<div class="content">Posts by user <a target="_blank" href="'+data_array['user_info']['link']+'"><img src="'+data_array['picture']+'">'+data_array['user_info']['name']+'</a></div>');
-					
+					if(data_array['posts'].data.length == 0){
+						$('.facebook_block .main_container').append('<div class="error">No posts.</div>');
+						return false;
+					}
 					for(var i = 0; i < data_array['posts'].data.length; i ++){
 						if (typeof data_array['posts'].data[i]['id'] !== 'undefined'){
 							var date = new Date(data_array['posts'].data[i]['created_time']);
@@ -190,8 +199,6 @@ $(document).ready(function(){
 		$('#form_twitter').hide();
 		$('.logout_from_facebook').show();
 		FacebookApi();
-		window.clearInterval(window.intervalId);
-		window.intervalId = setInterval(FacebookApi, 10000);
 		
 	});
 	$('#linkedin_link').click(function(e){
@@ -206,7 +213,9 @@ $(document).ready(function(){
 	});
 	$('.logout_from_facebook .logout').click(function(){
 		resetAllApies();
-		FB.logout();
+		FB.logout(function(response) {
+			document.location.reload();
+		});
 		$('.facebook_block .user_container .content').remove();
 		$('.facebook_block .main_container .facebook_post').each(function(){
 			$(this).remove();
